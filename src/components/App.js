@@ -1,6 +1,7 @@
 import './App.css'
 import getArticles from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
+import ArticleList from './ArticleList';
 
 function App() {
   const [articles, setArticles] = useState([]);
@@ -8,18 +9,17 @@ function App() {
   useEffect (() => {
     getArticles()
       .then(res => setArticles(res))
-      .then(() => logArticles())
   }, [])
 
-  const logArticles = () => {
-    articles.map(article => {
-      console.log(article.data.title, article.data.author)
-    })
-  }
+  // const logArticles = () => {
+  //   articles.map(article => {
+  //     console.log(article.data.title, article.data.author)
+  //   })
+  // }
 
   return (
     <div className="App">
-      <p>Hello</p>
+      <ArticleList articles={ articles } />
     </div>
   );
 }
