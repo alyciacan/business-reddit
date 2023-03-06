@@ -1,4 +1,4 @@
-import './App.css'
+import './App.scss'
 import getArticles from '../utils/apiCalls';
 import { useEffect, useState } from 'react';
 import ArticleList from './ArticleList';
@@ -18,8 +18,8 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      <h1>r/Business</h1>
+    <div className="App bg-dark">
+      <h1>r/<span className="text-primary">Business</span></h1>
       <ArticleList articles={ articles }  />
     </div>
   );

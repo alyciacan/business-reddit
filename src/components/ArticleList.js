@@ -1,5 +1,7 @@
 import ArticleCard from './ArticleCard';
 import { useState } from 'react';
+import Button from 'react-bootstrap/Button';
+import Stack from 'react-bootstrap/Stack';
 
 
 const ArticleList = ({ articles }) => {
@@ -10,16 +12,24 @@ const ArticleList = ({ articles }) => {
                 <ArticleCard 
                     title={ article.data.title }
                     author={ article.data.author }
+                    numComments={ article.data.num_comments }
                     key= { article.data.id }
                 />)
         }).slice(pageNum, (pageNum + 4))
 
     return (
-        <section>
-            { allCards }
+        <section className="bg-dark">
+            <Stack className="card-stack">
+                { allCards }
+            </Stack>
             <div>
-                <button onClick={ () => setPageNum(pageNum - 4) }>prev</button>
-                <button onClick={ () => setPageNum(pageNum + 4) }>next</button>
+                <Button 
+                    variant="primary" 
+                    className="btn-main" 
+                    onClick={ () => setPageNum(pageNum - 4) }
+                    disabled={ pageNum<1 }
+                >prev</Button>
+                <Button variant="primary" className="btn-main" onClick={ () => setPageNum(pageNum + 4) }>next</Button>
             </div>
         </section>
     )
