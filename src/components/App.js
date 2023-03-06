@@ -19,7 +19,7 @@ function App() {
 
   return (
     <div className="App bg-dark">
-      <h1>r/<span className="text-primary">Business</span></h1>
+      <h1 className="title-box">r/<span className="text-primary">Business</span></h1>
       <ArticleList articles={ articles }  />
     </div>
   );

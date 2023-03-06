@@ -13,6 +13,7 @@ const ArticleList = ({ articles }) => {
                     title={ article.data.title }
                     author={ article.data.author }
                     numComments={ article.data.num_comments }
+                    url={ article.data.url }
                     key= { article.data.id }
                 />)
         }).slice(pageNum, (pageNum + 4))
@@ -22,14 +23,16 @@ const ArticleList = ({ articles }) => {
             <Stack className="card-stack">
                 { allCards }
             </Stack>
-            <div>
+            <div className="button-box">
                 <Button 
                     variant="primary" 
                     className="btn-main" 
                     onClick={ () => setPageNum(pageNum - 4) }
                     disabled={ pageNum<1 }
-                >prev</Button>
-                <Button variant="primary" className="btn-main" onClick={ () => setPageNum(pageNum + 4) }>next</Button>
+                >
+                prev
+                    </Button>
+                    <Button variant="primary" className="btn-main" onClick={ () => setPageNum(pageNum + 4) }>next</Button>
             </div>
         </section>
     )
